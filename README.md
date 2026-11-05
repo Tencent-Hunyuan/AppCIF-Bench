@@ -4,7 +4,7 @@
 </h1></div>
 
 <p align="center">
-  📃 <a href="TODO_PAPER_URL" target="_blank">Paper</a> • 🌐 <a href="https://ac2333.github.io/AppCIF/" target="_blank">Website</a> • 📂 <a href="data/" target="_blank">Dataset</a>
+  🌐 <a href="https://ac2333.github.io/AppCIF/" target="_blank">Website</a> • 📂 <a href="data/" target="_blank">Dataset</a>
 </p>
 
 ## 🔔 News
