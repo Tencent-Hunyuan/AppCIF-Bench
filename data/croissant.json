@@ -1,0 +1,578 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "arrayShape": "cr:arrayShape",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "equivalentProperty": "schema:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileObject": "cr:fileObject",
+    "fileProperty": "cr:fileProperty",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "AppCIF-Bench",
+  "alternateName": [
+    "AppCIF"
+  ],
+  "description": "AppCIF-Bench is an application-level Complex Instruction Following benchmark for large language models. It contains 466 samples and 3,017 atomic rubrics across five application scenarios and four complexity levels, in Chinese and English. Difficulty scales along Horizon Length and Logical Depth. Models are scored by Soft Satisfaction Rate (SSR) and Hard Satisfaction Rate (HSR). Each JSONL line also holds nested fields that consumers should read as native lists: history is a list of chat messages of the form {role, content: [{type, value}]}, and rubrics is a list of objects of the form {id, desc, evaluation: [{type, complete_constraint}]}.",
+  "conformsTo": "http://mlcommons.org/croissant/1.1",
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "url": "https://github.com/Tencent-Hunyuan/AppCIF-Bench/tree/main/data",
+  "version": "1.1.0",
+  "datePublished": "2026-11-05",
+  "inLanguage": [
+    "zh",
+    "en"
+  ],
+  "isLiveDataset": false,
+  "keywords": [
+    "complex instruction following",
+    "LLM evaluation",
+    "benchmark",
+    "rubric-based evaluation",
+    "horizon length",
+    "logical depth"
+  ],
+  "creator": [
+    {
+      "@type": "sc:Person",
+      "name": "Jiahao Xu",
+      "affiliation": {
+        "@type": "sc:Organization",
+        "name": "Tencent"
+      }
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Xuefang Zhao",
+      "affiliation": {
+        "@type": "sc:Organization",
+        "name": "Tencent"
+      }
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Xinhua Feng",
+      "affiliation": {
+        "@type": "sc:Organization",
+        "name": "Tencent"
+      }
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Hongrui Yang",
+      "affiliation": {
+        "@type": "sc:Organization",
+        "name": "Tencent"
+      }
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Yixian Liu",
+      "affiliation": {
+        "@type": "sc:Organization",
+        "name": "Tencent"
+      }
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Zhichao Hu",
+      "affiliation": {
+        "@type": "sc:Organization",
+        "name": "Tencent"
+      }
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Yuhong Liu",
+      "affiliation": {
+        "@type": "sc:Organization",
+        "name": "Tencent"
+      }
+    }
+  ],
+  "publisher": {
+    "@type": "sc:Organization",
+    "name": "Tencent"
+  },
+  "citeAs": "Jiahao Xu, Xuefang Zhao, Xinhua Feng, Hongrui Yang, Yixian Liu, Zhichao Hu, Yuhong Liu. AppCIF-Bench: An Application-Level Complex Instruction Following Benchmark for Large Language Models. Advances in Neural Information Processing Systems, 2026.",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "file-zh",
+      "name": "AppCIF_bench_dataset.jsonl",
+      "description": "Chinese benchmark instances, one JSON object per line.",
+      "contentUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/AppCIF-Bench/main/data/AppCIF_bench_dataset.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "20ea8027d0570097da60af1044638cfd0844bd136a85960622ba5b403a518da2"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file-en",
+      "name": "AppCIF_bench_dataset_en.jsonl",
+      "description": "English translation of the benchmark instances, one JSON object per line.",
+      "contentUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/AppCIF-Bench/main/data/AppCIF_bench_dataset_en.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "14219ef9e06346676331c7224ba3065902f02030ec36ffd422e052fd1ec3f955"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file-engine-inputs",
+      "name": "structured_inputs.jsonl",
+      "description": "Code Simulation Engine inputs of the 240 Real-world Simulation samples, one JSON object per line.",
+      "contentUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/AppCIF-Bench/main/code_simulation_engines/structured_inputs.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "d9a4297c03bfcddb92c3626c4da253e93f251230979f46ece314ab92597abf0e"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file-strata",
+      "name": "cross_lingual_strata.json",
+      "description": "Strata for Chinese-English comparison: 18 Role Playing samples to report separately and the 448 directly comparable samples.",
+      "contentUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/AppCIF-Bench/main/data/cross_lingual_strata.json",
+      "encodingFormat": "application/json",
+      "sha256": "55bc5c753755c17e658b7624640b5fc284cc1ba4e3ad6875d6789402b735af91"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "records-zh",
+      "name": "records-zh",
+      "description": "Chinese benchmark instances, one JSON object per line. Nested JSON list fields in each line, not exposed as columns here: history, rubrics.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "records-zh/id",
+          "name": "id",
+          "description": "Sample identifier, shared between the Chinese and English files.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-zh"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-zh/scenario",
+          "name": "scenario",
+          "description": "Application scenario: Curriculum Planning, Travel Planning, Numeric-Intensive, Role Playing, or Real-world Simulation.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-zh"
+            },
+            "extract": {
+              "column": "scenario"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-zh/category",
+          "name": "category",
+          "description": "Finer task category. Equals the scenario, except for the six Real-world Simulation rulebooks.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-zh"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-zh/Difficulty",
+          "name": "Difficulty",
+          "description": "Complexity level: level1, level2, level3, or level4.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-zh"
+            },
+            "extract": {
+              "column": "Difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-zh/system_prompt",
+          "name": "system_prompt",
+          "description": "System prompt that defines the persona, environment, rulebook, or task constraints.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-zh"
+            },
+            "extract": {
+              "column": "system_prompt"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-zh/question",
+          "name": "question",
+          "description": "Final user question or instruction the model must answer.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-zh"
+            },
+            "extract": {
+              "column": "question"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-zh/ground-truth-derivation",
+          "name": "ground-truth derivation",
+          "description": "Step-by-step derivation that supports the rubrics. It is not shown to the evaluated model.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-zh"
+            },
+            "extract": {
+              "column": "ground-truth derivation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "records-en",
+      "name": "records-en",
+      "description": "English translation of the benchmark instances, one JSON object per line. Nested JSON list fields in each line, not exposed as columns here: history, rubrics.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "records-en/id",
+          "name": "id",
+          "description": "Sample identifier, shared between the Chinese and English files.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-en"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-en/scenario",
+          "name": "scenario",
+          "description": "Application scenario: Curriculum Planning, Travel Planning, Numeric-Intensive, Role Playing, or Real-world Simulation.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-en"
+            },
+            "extract": {
+              "column": "scenario"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-en/category",
+          "name": "category",
+          "description": "Finer task category. Equals the scenario, except for the six Real-world Simulation rulebooks.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-en"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-en/Difficulty",
+          "name": "Difficulty",
+          "description": "Complexity level: level1, level2, level3, or level4.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-en"
+            },
+            "extract": {
+              "column": "Difficulty"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-en/system_prompt",
+          "name": "system_prompt",
+          "description": "System prompt that defines the persona, environment, rulebook, or task constraints.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-en"
+            },
+            "extract": {
+              "column": "system_prompt"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-en/question",
+          "name": "question",
+          "description": "Final user question or instruction the model must answer.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-en"
+            },
+            "extract": {
+              "column": "question"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "records-engine-inputs",
+      "name": "records-engine-inputs",
+      "description": "Code Simulation Engine inputs of the 240 Real-world Simulation samples, one JSON object per line.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "records-engine-inputs/id",
+          "name": "id",
+          "description": "Sample identifier, shared between the Chinese and English files.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-engine-inputs"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-engine-inputs/category",
+          "name": "category",
+          "description": "Finer task category. Equals the scenario, except for the six Real-world Simulation rulebooks.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-engine-inputs"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-engine-inputs/engine",
+          "name": "engine",
+          "description": "Code Simulation Engine that processes this input.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-engine-inputs"
+            },
+            "extract": {
+              "column": "engine"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records-engine-inputs/structured_input",
+          "name": "structured_input",
+          "description": "Structured engine input, serialized as a string.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "file-engine-inputs"
+            },
+            "extract": {
+              "column": "structured_input"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "rai:dataCollection": "Seeds were initialized across user, scenario, and interaction dimensions. User profiles reuse PerLTQA; Role-Playing seeds were sampled from real-world production logs under the deploying provider's data-usage agreement and anonymized before inclusion; experts curated high-frequency topics for the other open-domain scenarios and expanded them into system prompts with LLMs. Open-domain tasks follow AI-First Refinement: a Blueprint Agent, Logic Agent, and Noise Agent draft dialogues, and experts refine them. Real-world Simulation follows Human-First Expansion: experts write the rulebook, a paired Python Code Simulation Engine, and structured task instances, and LLMs express those tasks as multi-turn dialogue. Three annotators constructed and evaluated the dataset. See the paper's data construction section and Appendix on Human Involvement.",
+  "rai:dataAnnotation": "Each sample carries atomic, binary rubrics. Experts author ground-truth derivations and rubrics for open-domain scenarios; the Code Simulation Engine generates them for Real-world Simulation. The three annotators followed written guidelines covering annotation requirements, logical-complexity directions, and acceptance criteria, trained on them, and completed multiple pilot rounds. Annotators are compensated above the local minimum wage. Paper results on the initial version are scored by an LLM judge (Doubao-Seed-1.6-1015): a second judge agrees on 95.8% of samples (Cohen's kappa 0.743) and 92.1% of constraints (kappa 0.843), and the judge reaches 96% consensus agreement with human annotators on a stratified 60-instance subset of 431 rubric items. Doubao-Seed-1.6 is no longer served, so v1.1 results use Doubao-Seed-2.0-lite with the same judge prompt.",
+  "rai:dataPreprocessing": "Open-domain L1 instances are derived by removing all distractor turns from L2/L3 traces while keeping the reasoning chain. Real-world Simulation instances are assigned to levels through rulebook-level calibration and instance-level numerical and structural criteria. Role-Playing seeds have user identifiers, account fields, and PII removed before inclusion. This v1.1 release adds a parallel English translation and applies a post-submission audit that corrected gold values, rubric wording, derivations, rulebook rules, and a few dialogue turns: of the 2,998 original rubrics, 1,084 were revised, 1 was removed, and 20 were added (3,017 in total), and 149 samples are unchanged.",
+  "rai:dataLimitations": "AppCIF has 466 samples with uneven coverage across scenarios and levels; some groups are small, such as Numeric-Intensive L3 with 23 samples, which limits subgroup precision. All 90 L4 samples belong to Real-world Simulation, so results do not establish L4 generalization across application scenarios. Five application scenarios are covered, and other domains are out of scope. Scores depend on the LLM judge, and scores on v1.1 are not directly comparable with the initial-version results in the paper's main tables. Failure attributions are bottleneck signals, not causal decompositions. The dataset is an evaluation benchmark and is not recommended as training or fine-tuning data or as a certification of production readiness. The CC BY-NC 4.0 license allows non-commercial use only.",
+  "rai:dataBiases": "The benchmark was originally constructed in Chinese, and the English file is a translation, so language and cultural context may favour some models. 18 Role Playing samples require Chinese-specific output or carry a language-tied constraint and should be reported separately in Chinese-English comparisons (see cross_lingual_strata.json). Scenario coverage is skewed toward Real-world Simulation (240 of 466 samples). Rubrics reflect the judgement of a small annotator team, and scores reflect the interpretation of the LLM judge. Role-Playing seeds come from production logs of a deployed service, and user profiles come from PerLTQA, so their populations may not represent other users. No demographic balancing was performed.",
+  "rai:personalSensitiveInformation": "The released benchmark is not intended to contain personally identifiable information. Role-Playing seeds sampled from real-world production logs were anonymized before inclusion by removing user identifiers, account fields, and PII. User profiles are reused from the published PerLTQA dataset. The data may mention language, geography, or occupation as part of fictional or anonymized task context.",
+  "rai:dataUseCases": "Construct: the ability to follow complex, rule-laden instructions at application level, stratified by Horizon Length and Logical Depth. Validity evidence in the paper covers comparing LLMs on Soft and Hard Satisfaction Rate, studying performance across levels and scenarios, and diagnosing failures. Validity is not established for safety or fairness auditing, training or fine-tuning, or certifying deployment in regulated domains.",
+  "rai:dataSocialImpact": "Positive: a public diagnostic helps practitioners find capability gaps before deploying LLMs in production workflows. Reporting both SSR and HSR prevents surface fluency from masking reasoning failures. Risks: benchmark overfitting, and over-claiming production readiness from a high score. The authors see no direct path from the released structured task prompts to harmful applications.",
+  "rai:hasSyntheticData": true,
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://aclanthology.org/2024.sighan-1.18/",
+      "prov:label": "PerLTQA (user profiles reused as User Seeds)"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q4929239"
+      },
+      "prov:label": "Seed initialization and task drafting",
+      "sc:description": "Seeds were initialized across user, scenario, and interaction dimensions, with an open-domain interaction scale of 50-200 turns. Open-domain tasks follow AI-First Refinement: a Blueprint Agent plans the interaction timeline, a Logic Agent drafts task-critical turns, and a Noise Agent generates plausible task-irrelevant turns, after which human experts refine the critical turns. Real-world Simulation follows Human-First Expansion: experts write the rulebook, Python Code Simulation Engine, and structured task instances, and the same agents express those fixed tasks as multi-turn dialogue.",
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:Agent",
+          "@id": "human_experts",
+          "prov:label": "Human experts",
+          "sc:description": "Three annotators from universities who curated topics, refined critical turns, and wrote rulebooks and task instances, following written guidelines after training and pilot rounds."
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "@id": "llm_construction_agents",
+          "prov:label": "LLM Blueprint, Logic, and Noise Agents",
+          "sc:description": "Prompt-driven LLM agents that drafted dialogue turns. Their full prompts are released in the paper's appendix on data construction prompts."
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q1172378"
+      },
+      "prov:label": "Role-Playing seed anonymization",
+      "sc:description": "Role-Playing seeds sampled from real-world production logs, used under the deploying provider's data-usage agreement, had user identifiers, account fields, and PII removed before inclusion.",
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:Agent",
+          "@id": "appcif_authors",
+          "prov:label": "AppCIF-Bench authors, Tencent",
+          "sc:description": "The dataset authors, affiliated with Tencent."
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q109719325"
+      },
+      "prov:label": "Ground-truth and rubric annotation",
+      "sc:description": "Each sample receives a ground-truth derivation and atomic, binary evaluation rubrics. Human experts author them for the four open-domain scenarios, and the Code Simulation Engine generates them for Real-world Simulation by applying the rulebook to structured task inputs.",
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:Agent",
+          "@id": "human_experts",
+          "prov:label": "Human experts",
+          "sc:description": "Three trained annotators, compensated above the local minimum wage, using written guidelines with acceptance criteria such as minimum reasoning depth and constraint coverage."
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "@id": "code_simulation_engines",
+          "prov:label": "Code Simulation Engines",
+          "sc:description": "Six executable Python engines released in this repository under code_simulation_engines/."
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q5227332"
+      },
+      "prov:label": "Difficulty calibration and English release",
+      "sc:description": "Open-domain L1 instances are derived by removing all distractor turns from L2/L3 traces. Real-world Simulation instances are placed through rulebook-level calibration, including multi-model pilots, and instance-level numerical and structural criteria. Version 1.1 adds a parallel English translation with the same sample IDs and the same number of rubrics per sample.",
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:Agent",
+          "@id": "appcif_authors",
+          "prov:label": "AppCIF-Bench authors, Tencent",
+          "sc:description": "The dataset authors, affiliated with Tencent."
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q3306762"
+      },
+      "prov:label": "Judge validation and post-submission audit",
+      "sc:description": "On the initial version, a second judge from another vendor agreed with the primary judge on 95.8% of samples (Cohen's kappa 0.743) and 92.1% of constraints (kappa 0.843). Three trained annotators re-scored a stratified 60-instance subset of 431 rubric items, with 96% consensus agreement. A post-submission audit then produced v1.1: of 2,998 original rubrics, 1,084 were revised, 1 was removed, and 20 were added, and the engines were fixed accordingly.",
+      "prov:wasAttributedTo": [
+        {
+          "@type": "prov:SoftwareAgent",
+          "@id": "doubao_seed_1_6",
+          "prov:label": "Doubao-Seed-1.6-1015",
+          "sc:description": "Primary LLM judge for the paper results on the initial version."
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "@id": "gemini_3_flash",
+          "prov:label": "Gemini-3-Flash-Preview",
+          "sc:description": "Independent second LLM judge used for the cross-judge audit."
+        },
+        {
+          "@type": "prov:Agent",
+          "@id": "human_annotators",
+          "prov:label": "Trained human annotators",
+          "sc:description": "Three annotators who re-scored the stratified subset."
+        }
+      ]
+    }
+  ]
+}
