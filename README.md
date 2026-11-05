@@ -227,18 +227,6 @@ This repository releases **v1.1** of AppCIF-Bench. The 466 samples, scenarios, d
 
 Scores on v1.1 are therefore not directly comparable with the paper results; re-evaluation results on v1.1 are reported in Appendix J of the paper. Scores also depend on the judge, so report which judge you used and compare models under the same judge.
 
-## 🔎 Citation
-
-If you use AppCIF-Bench in your research, please cite:
-
-```bibtex
-@inproceedings{xu2026appcif,
-  title     = {AppCIF-Bench: An Application-Level Complex Instruction Following Benchmark for Large Language Models},
-  author    = {Xu, Jiahao and Zhao, Xuefang and Feng, Xinhua and Yang, Hongrui and Liu, Yixian and Hu, Zhichao and Liu, Yuhong},
-  booktitle = {Advances in Neural Information Processing Systems},
-  year      = {2026}
-}
-```
 
 ## 📜 License
 
