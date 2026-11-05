@@ -1,0 +1,4 @@
+# No third-party package is required to run the released engines.
+# Optional diagnostic spreadsheet export in spatiotemporal_trade_engine.py:
+# pandas
+# openpyxl

@@ -1,0 +1,15 @@
+# AppCIF-Bench — Python dependencies
+# Install with:  pip install -r requirements.txt
+
+# OpenAI-compatible API client (model calls + evaluator)
+openai>=1.14.0
+
+# Async HTTP (used internally by openai)
+httpx>=0.25.0
+
+# Data processing & output
+pandas>=2.0.0
+openpyxl>=3.1.0          # required by pandas for .xlsx output
+
+# Environment variable management
+python-dotenv>=1.0.0
